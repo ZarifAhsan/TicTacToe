@@ -2,6 +2,6 @@
     <string name="app_name">Tic Tac Toe</string>
     <string name="player_x">Player X:</string>
     <string name="_0">0</string>
-    <string name="player_y">Player Y:</string>
+    <string name="player_O">Player O:</string>
     <string name="reset">Reset</string>
 </resources>

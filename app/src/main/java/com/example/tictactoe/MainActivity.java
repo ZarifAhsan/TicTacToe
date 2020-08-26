@@ -2,6 +2,7 @@ package com.example.tictactoe;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,10 +18,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int roundCount;
 
     private int playerXPoints;
-    private int playerYPoints;
+    private int playerOPoints;
 
     private TextView textViewPlayerX;
-    private TextView textViewPlayerY;
+    private TextView textViewPlayerO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         textViewPlayerX = findViewById(R.id.player_x_score);
-        textViewPlayerY = findViewById(R.id.player_y_score);
+        textViewPlayerO = findViewById(R.id.player_O_score);
 
 
         for (int i = 0; i < 3; i++) {
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                resetGame();
             }
         });
 
@@ -77,34 +79,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private boolean checkForWin() {
-        String[][] feild = new String[3][3];
+        String[][] field = new String[3][3];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                feild[i][j] = buttons[i][j].getText().toString();
+                field[i][j] = buttons[i][j].getText().toString();
             }
         }
 
         for (int i = 0; i < 3; i++) {
-            if (feild[i][0].equals(feild[i][1])
-                    && feild[i][0].equals(feild[i][2])
-                    && !feild[i][0].equals("")) {
+            if (field[i][0].equals(field[i][1])
+                    && field[i][0].equals(field[i][2])
+                    && !field[i][0].equals("")) {
                 return true;
             }
         }
 
         for (int i = 0; i < 3; i++) {
-            if (feild[0][i].equals(feild[1][i])
-                    && feild[0][i].equals(feild[2][i])
-                    && !feild[0][i].equals("")) {return true;}
+            if (field[0][i].equals(field[1][i])
+                    && field[0][i].equals(field[2][i])
+                    && !field[0][i].equals("")) {return true;}
         }
 
-        if (feild[0][0].equals(feild[1][1])
-                && feild[0][0].equals(feild[2][2])
-                && !feild[0][0].equals("")) {return true;}
+        if (field[0][0].equals(field[1][1])
+                && field[0][0].equals(field[2][2])
+                && !field[0][0].equals("")) {return true;}
 
-        if (feild[0][2].equals(feild[1][1])
-                && feild[0][2].equals(feild[2][0])
-                && !feild[0][2].equals("")) {return true;}
+        if (field[0][2].equals(field[1][1])
+                && field[0][2].equals(field[2][0])
+                && !field[0][2].equals("")) {return true;}
 
         return false;
     }
@@ -117,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void playerYWins() {
-        playerYPoints++;
+        playerOPoints++;
         Toast.makeText(this, "Player Y Wins", Toast.LENGTH_SHORT).show();
         updatePointsText();
         resetBoard();
@@ -128,9 +130,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         resetBoard();
     }
 
+    @SuppressLint("SetTextI18n")
     private void updatePointsText() {
         textViewPlayerX.setText("" + playerXPoints);
-        textViewPlayerY.setText("" + playerYPoints);
+        textViewPlayerO.setText("" + playerOPoints);
     }
 
     private void resetBoard() {
@@ -142,5 +145,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         roundCount = 0;
         playerXTurn = true;
+    }
+
+    private void resetGame() {
+        playerXPoints = 0;
+        playerOPoints = 0;
+        updatePointsText();
+        resetBoard();
     }
 }

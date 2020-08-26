@@ -20,7 +20,8 @@
             android:layout_height="wrap_content"
             android:text="@string/player_x"
             android:textColor="@android:color/black"
-            android:textSize="24sp"/>
+            android:textSize="24sp"
+            android:freezesText="true"/>
 
         <TextView
             android:id="@+id/player_x_score"
@@ -30,7 +31,8 @@
             android:text="@string/_0"
             android:layout_marginStart="8dp"
             android:textSize="24sp"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black"
+            android:freezesText="true"/>
 
         <TextView
             android:id="@+id/player_O"
@@ -39,7 +41,8 @@
             android:text="@string/player_O"
             android:layout_below="@id/player_x_score"
             android:textColor="@android:color/black"
-            android:textSize="24sp"/>
+            android:textSize="24sp"
+            android:freezesText="true"/>
 
         <TextView
             android:id="@+id/player_O_score"
@@ -50,7 +53,8 @@
             android:layout_below="@id/player_x_score"
             android:textSize="24sp"
             android:layout_marginStart="8dp"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black"
+            android:freezesText="true"/>
 
         <Button
             android:id="@+id/reset_score"
@@ -72,8 +76,8 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="8dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="4dp"
             android:background="@android:color/black"/>
 
         <LinearLayout
@@ -95,21 +99,24 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:textSize="60sp"
-                    tools:ignore="NestedWeights" />
+                    tools:ignore="NestedWeights"
+                    android:freezesText="true"/>
 
                 <Button
                     android:id="@+id/button_01"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:textSize="60sp" />
+                    android:textSize="60sp"
+                    android:freezesText="true"/>
 
                 <Button
                     android:id="@+id/button_02"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:textSize="60sp" />
+                    android:textSize="60sp"
+                    android:freezesText="true"/>
 
             </LinearLayout>
 
@@ -124,21 +131,24 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:textSize="60sp"
-                    tools:ignore="NestedWeights" />
+                    tools:ignore="NestedWeights"
+                    android:freezesText="true"/>
 
                 <Button
                     android:id="@+id/button_11"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:textSize="60sp" />
+                    android:textSize="60sp"
+                    android:freezesText="true"/>
 
                 <Button
                     android:id="@+id/button_12"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:textSize="60sp" />
+                    android:textSize="60sp"
+                    android:freezesText="true"/>
 
             </LinearLayout>
 
@@ -153,14 +163,16 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:textSize="60sp"
-                    tools:ignore="NestedWeights" />
+                    tools:ignore="NestedWeights"
+                    android:freezesText="true"/>
 
                 <Button
                     android:id="@+id/button_21"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:textSize="60sp" />
+                    android:textSize="60sp"
+                    android:freezesText="true"/>
 
                 <Button
                     android:id="@+id/button_22"
@@ -168,7 +180,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text=""
-                    android:textSize="60sp" />
+                    android:textSize="60sp"
+                    android:freezesText="true"/>
 
             </LinearLayout>
 

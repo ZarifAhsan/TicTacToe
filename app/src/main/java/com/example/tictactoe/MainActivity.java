@@ -1,5 +1,6 @@
 package com.example.tictactoe;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -152,5 +153,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         playerOPoints = 0;
         updatePointsText();
         resetBoard();
+    }
+
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putInt("roundCount", roundCount);
+        outState.putInt("playerXPoints", playerXPoints);
+        outState.putInt("playerOPoints", playerOPoints);
+        outState.putBoolean("playerXTurn", playerXTurn);
+    }
+
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        roundCount = savedInstanceState.getInt("roundCount");
+        playerXPoints = savedInstanceState.getInt("playerXPoints");
+        playerOPoints = savedInstanceState.getInt("playerOPoints");
+        playerXTurn = savedInstanceState.getBoolean("playerXTurn");
     }
 }

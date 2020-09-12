@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/player_x"
             android:text="@string/_0"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="9dp"
             android:textSize="24sp"
             android:textColor="@android:color/black"
             android:freezesText="true"/>

@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button[][] buttons = new Button[3][3];
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (playerXTurn) {
                 playerXWins();
             } else {
-                playerYWins();
+                playerOWins();
             }
         } else if (roundCount == 9) {
             draw();
@@ -119,9 +120,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         resetBoard();
     }
 
-    private void playerYWins() {
+    private void playerOWins() {
         playerOPoints++;
-        Toast.makeText(this, "Player Y Wins", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Player O Wins", Toast.LENGTH_SHORT).show();
         updatePointsText();
         resetBoard();
     }
@@ -176,4 +177,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         playerOPoints = savedInstanceState.getInt("playerOPoints");
         playerXTurn = savedInstanceState.getBoolean("playerXTurn");
     }
+
 }

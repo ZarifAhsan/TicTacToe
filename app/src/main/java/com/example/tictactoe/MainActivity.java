@@ -55,9 +55,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if (!((Button) v).getText().toString().equals("")) {
-            return;
-        }
+        if (!((Button) v).getText().toString().equals("")) return;
+        
         if (playerXTurn) {
             ((Button) v).setText("X");
         } else {
@@ -91,24 +90,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         for (int i = 0; i < 3; i++) {
             if (field[i][0].equals(field[i][1])
                     && field[i][0].equals(field[i][2])
-                    && !field[i][0].equals("")) {
-                return true;
-            }
+                    && !field[i][0].equals("")) return true;
         }
 
         for (int i = 0; i < 3; i++) {
             if (field[0][i].equals(field[1][i])
                     && field[0][i].equals(field[2][i])
-                    && !field[0][i].equals("")) {return true;}
+                    && !field[0][i].equals("")) return true;
         }
 
         if (field[0][0].equals(field[1][1])
                 && field[0][0].equals(field[2][2])
-                && !field[0][0].equals("")) {return true;}
+                && !field[0][0].equals("")) return true;
 
         if (field[0][2].equals(field[1][1])
                 && field[0][2].equals(field[2][0])
-                && !field[0][2].equals("")) {return true;}
+                && !field[0][2].equals("")) return true;
 
         return false;
     }

@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button[][] buttons = new Button[3][3];
+    private final Button[][] buttons = new Button[3][3];
 
     private boolean playerXTurn = true;
 
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 String buttonID = "button_" + i + j;
-                int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
+                @SuppressLint("DiscouragedApi") int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
                 buttons[i][j] = findViewById(resID);
                 buttons[i][j].setOnClickListener(this);
             }
@@ -103,11 +103,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 && field[0][0].equals(field[2][2])
                 && !field[0][0].equals("")) return true;
 
-        if (field[0][2].equals(field[1][1])
+        return field[0][2].equals(field[1][1])
                 && field[0][2].equals(field[2][0])
-                && !field[0][2].equals("")) return true;
-
-        return false;
+                && !field[0][2].equals("");
     }
 
     private void playerXWins() {
